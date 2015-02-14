@@ -1,8 +1,11 @@
 package com.abien.filestore;
 
 import java.net.URI;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
+import javax.resource.ResourceException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -19,7 +22,7 @@ import org.connectorz.files.BucketStore;
 @Produces(MediaType.TEXT_PLAIN)
 public class FilesResource {
 
-    @Resource(name = "jca/files")
+    @Resource(name = "java:jboss/jca/Bucket")
     BucketStore bucketStore;
 
     @PUT
@@ -37,8 +40,9 @@ public class FilesResource {
     public String fetch(@PathParam("id") String id) {
         try (Bucket bucket = bucketStore.getBucket();) {
             final byte[] content = bucket.fetch(id);
-            if(content == null)
+            if (content == null) {
                 return null;
+            }
             return new String(content);
         }
     }
