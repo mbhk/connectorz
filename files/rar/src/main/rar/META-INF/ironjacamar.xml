@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ironjacamar>
+    <connection-definitions>
+        <connection-definition 
+            class-name="org.connectorz.files.store.GenericManagedConnectionFactory" 
+            jndi-name="java:jboss/jca/Bucket">
+            <config-property name="RootDirectory">
+                ${jboss.server.data.dir}/TestEarFileSpace
+            </config-property>
+        </connection-definition>
+    </connection-definitions>
+</ironjacamar>

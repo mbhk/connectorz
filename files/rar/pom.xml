@@ -8,17 +8,22 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>org.connectorz.files</groupId>
-    <artifactId>store</artifactId>
+    <artifactId>rar</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>rar</packaging>
 
-    <name>JCA File Store</name>
+    <name>JCA File Store RAR</name>
     <url>http://connectorz.adam-bien.com</url>
     <dependencies>
         <dependency>
-            <groupId>org.connectorz.files</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>api</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>store</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>    
     <build>
