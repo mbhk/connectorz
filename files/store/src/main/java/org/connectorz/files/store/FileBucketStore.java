@@ -25,6 +25,7 @@ import org.connectorz.files.BucketStore;
 
 public class FileBucketStore
         implements BucketStore {
+    private static final long serialVersionUID = 3234294844357725578L;
 
     private ManagedConnectionFactory mcf;
     private Reference reference;
